@@ -46,10 +46,51 @@
 
       }
     },
-    mounted(){
+    async mounted(){
       this.pokeNumber = $nuxt.$route.params.dex
+      this.pokeName = await Pokename[this.pokeNumber]
+      console.log(this.pokeName,Pokename[this.pokeNumber],this.pokeNumber)
+      const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${this.pokeNumber}`)
+      response.data.types.map(x=>{this.pokeTypes.push(x.type.name)})
+      response.data.stats.map((x)=>{
+        console.log(x.stat.name+' : '+x.base_stat)
+        switch (x.stat.name) {
 
-      console.log($nuxt.$route.params.dex,axios)
+          case 'speed':
+            this.pokeIndividualValue.Speed = x.base_stat
+            console.log('S : '+this.pokeIndividualValue.Speed)
+            break
+
+          case 'special-defense':
+            this.pokeIndividualValue.SpecialDefense = x.base_stat
+            console.log('D : '+this.pokeIndividualValue.SpecialDefense)
+            break
+
+          case 'special-attack':
+            this.pokeIndividualValue.SpecialAttack = x.base_stat
+            console.log('C : '+this.pokeIndividualValue.SpecialAttack)
+            break
+
+          case 'defense':
+            this.pokeIndividualValue.Defense = x.base_stat
+            console.log('B : '+this.pokeIndividualValue.Defense)
+            break
+
+          case 'attack':
+            this.pokeIndividualValue.Attack = x.base_stat
+            console.log('A : '+this.pokeIndividualValue.Attack)
+            break
+
+          case 'hp':
+            this.pokeIndividualValue.HP = x.base_stat
+            console.log('H : '+this.pokeIndividualValue.HP)
+            break
+
+        }
+      })
+
+
+
     }
 
   }

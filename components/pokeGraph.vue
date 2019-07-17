@@ -10,7 +10,6 @@
     export default {
       props: {
         pokeIndividualValue: {
-
         },
       },
         name: "pokeGraph"

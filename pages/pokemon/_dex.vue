@@ -8,7 +8,7 @@
 
       <Skills />
       <DefaultData />
-      <Effort />
+      <Effort :pokeIndividualValue="this.pokeIndividualValue" />
       <Graph :pokeIndividualValue="this.pokeIndividualValue"/>
 
     </div>

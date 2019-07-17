@@ -1,9 +1,15 @@
 <template>
-    <div>努力値だよ！</div>
+    <div>
+      <p>努力値だよ！</p>
+    </div>
 </template>
 
 <script>
     export default {
+      props: {
+        pokeIndividualValue: {
+        },
+      },
         name: "pokeEffortData"
     }
 </script>

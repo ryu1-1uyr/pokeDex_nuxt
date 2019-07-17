@@ -7,7 +7,7 @@
       <p>{{this.pokeIndividualValue}}</p>
 
       <Skills />
-      <DefaultData />
+      <DefaultData :name="this.pokeName" :number="this.pokeNumber" :abilities="this.pokeAbilities" :types="this.pokeTypes"  />
       <Effort :pokeIndividualValue="this.pokeIndividualValue" />
       <Graph :pokeIndividualValue="this.pokeIndividualValue"/>
 

@@ -26,7 +26,6 @@
           <b-nav-form>
 
             <b-form-input list="my-list-id" v-model="pickpokemon"></b-form-input>
-            <!--<p>{{pickpokemon}}</p>-->
 
             <datalist id="my-list-id">
               <option>Manual Option</option>

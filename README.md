@@ -2,6 +2,9 @@
 
 > My ultimate Nuxt.js project
 
+bootstrap-vue <= 今回はこれ
+
+
 ## Build Setup
 
 ``` bash

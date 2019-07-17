@@ -15,6 +15,7 @@
   import DefaultData from '@/components/pokeDefaultData'
   import Effort from '@/components/pokeEffortData'
   import Graph from '@/components/pokeGraph'
+  import axios from "../../.nuxt/axios";
 
   export default {
     components: {
@@ -23,7 +24,7 @@
       Effort,
       Graph
     },
-        name: "_dex",
+    name: "_dex",
     data () {
       return {
         pokeName: '',
@@ -42,7 +43,8 @@
     },
     mounted(){
       this.pokeNumber = $nuxt.$route.params.dex
-      console.log($nuxt.$route.params.dex)
+
+      console.log($nuxt.$route.params.dex,axios)
     }
 
   }

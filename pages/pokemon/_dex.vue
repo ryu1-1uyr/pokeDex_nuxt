@@ -3,11 +3,13 @@
       <p>卍くわしいぺーじ卍</p>
       <p>{{this.pokeNumber+' : '+this.pokeName}}</p>
       <p>{{this.pokeTypes}}</p>
+      <p>{{this.pokeAbilities}}</p>
+      <p>{{this.pokeIndividualValue}}</p>
 
       <Skills />
       <DefaultData />
       <Effort />
-      <Graph />
+      <Graph :pokeIndividualValue="this.pokeIndividualValue"/>
 
     </div>
 </template>
@@ -33,8 +35,9 @@
         baseurl: 'https://pokeapi.co/api/v2/pokemon/',
         pokeName: '',
         pokeNumber: '',
-        pokeAbility: '',
+        pokeAbilities: [],
         pokeTypes: [],
+        pokeMoves: [],
         pokeIndividualValue: {
           HP: '',
           Attack: '',
@@ -52,6 +55,9 @@
       console.log(this.pokeName,Pokename[this.pokeNumber],this.pokeNumber)
       const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${this.pokeNumber}`)
       response.data.types.map(x=>{this.pokeTypes.push(x.type.name)})
+      response.data.abilities.map(x=>{this.pokeAbilities.push(x.ability.name)})
+      this.pokeMoves = response.data.moves
+
       response.data.stats.map((x)=>{
         console.log(x.stat.name+' : '+x.base_stat)
         switch (x.stat.name) {

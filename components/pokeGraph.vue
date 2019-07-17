@@ -1,9 +1,18 @@
 <template>
-    <div>ぐらふをつくるよ！！！</div>
+    <div>
+      <p>ぐらふをつくるよ！！！</p>
+      <p>{{pokeIndividualValue}}</p>
+    </div>
+
 </template>
 
 <script>
     export default {
+      props: {
+        pokeIndividualValue: {
+
+        },
+      },
         name: "pokeGraph"
     }
 </script>

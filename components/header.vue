@@ -19,13 +19,21 @@
 
           </b-nav-item>
 
-        </b-navbar-nav>gs
+        </b-navbar-nav>
 
         <!--ここでコンポーネント切り分けるとCSS周りがクソだるくなるのでやめた-->
         <b-navbar-nav class="ml-auto">
           <b-nav-form>
-            <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
-            <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
+
+            <b-form-input list="my-list-id" v-model="pickpokemon"></b-form-input>
+            <!--<p>{{pickpokemon}}</p>-->
+
+            <datalist id="my-list-id">
+              <option>Manual Option</option>
+              <option v-for="pokename in pokenames">{{ pokename }}</option>
+            </datalist>
+
+            <b-button size="sm" class="my-2 my-sm-0" @click="nameToNumber(pickpokemon)">Search</b-button>
           </b-nav-form>
         </b-navbar-nav>
 
@@ -35,10 +43,22 @@
 </template>
 
 <script>
-  // import Search from '@/components/search'
+  import Pokename from '@/assets/pokename'
 
     export default {
       name: "header",
+      data() {
+        return {
+          pickpokemon: '',
+          pokenames: Pokename
+        }
+      },
+      methods: {
+        nameToNumber(pokename) {
+          const result = Object.keys(this.pokenames).filter((k) => { return this.pokenames[k] == pokename })[0];
+          console.log(result)
+        }
+      }
     }
 </script>
 

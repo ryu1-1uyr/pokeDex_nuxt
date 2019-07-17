@@ -1,19 +1,16 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="info">
-      <b-navbar-brand href="#">NavBar</b-navbar-brand>
-
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+    <b-navbar toggleable="lg" type="dark">
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <b-nav-item >
 
             <div>
-              <b-button v-b-modal.modal-1>Launch demo modal</b-button>
+              <b-button v-b-modal.modal-1>手持ち</b-button>
 
-              <b-modal id="modal-1" title="BootstrapVue">
-                <p class="my-4">Hello from modal!</p>
+              <b-modal id="modal-1" title="手持ちポケモン">
+                <p class="my-4">ここに手持ちのポケモンのアイコンを表示したいね</p>
               </b-modal>
             </div>
 
@@ -28,19 +25,6 @@
             <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
           </b-nav-form>
 
-          <b-nav-item-dropdown text="Lang" right>
-            <b-dropdown-item href="#">EN</b-dropdown-item>
-            <b-dropdown-item href="#">ES</b-dropdown-item>
-            <b-dropdown-item href="#">RU</b-dropdown-item>
-            <b-dropdown-item href="#">FA</b-dropdown-item>
-          </b-nav-item-dropdown>
-
-          <b-nav-item-dropdown right>
-            <!-- Using 'button-content' slot -->
-            <template slot="button-content"><em>User</em></template>
-            <b-dropdown-item href="#">Profile</b-dropdown-item>
-            <b-dropdown-item href="#">Sign Out</b-dropdown-item>
-          </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>

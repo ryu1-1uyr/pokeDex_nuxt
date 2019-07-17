@@ -25,14 +25,14 @@
         <b-navbar-nav class="ml-auto">
           <b-nav-form>
 
-            <b-form-input list="my-list-id" v-model="pickpokemon"></b-form-input>
+            <b-form-input list="my-list-id" v-model="pickpokemon" v-on:keydown.enter="nameToNumber(pickpokemon)" ></b-form-input>
 
             <datalist id="my-list-id">
               <option>Manual Option</option>
-              <option v-for="pokename in pokenames">{{ pokename }}</option>
+              <option v-for="pokename in pokenames" ><a @click="nameToNumber(pickpokemon)" :href="'/'+pickupnumber"></a>{{pokename }}</option>
             </datalist>
 
-            <b-button size="sm" class="my-2 my-sm-0" @click="nameToNumber(pickpokemon)">Search</b-button>
+            <b-button size="sm" class="my-2 my-sm-0" @click="nameToNumber(pickpokemon)" :href="'/pokemon/'+pickupnumber">Search</b-button>
           </b-nav-form>
         </b-navbar-nav>
 
@@ -49,14 +49,19 @@
       data() {
         return {
           pickpokemon: '',
+          pickupnumber: 1,
           pokenames: Pokename
         }
       },
       methods: {
         nameToNumber(pokename) {
           const result = Object.keys(this.pokenames).filter((k) => { return this.pokenames[k] == pokename })[0];
+          this.pickupnumber = result
           console.log(result)
         }
+      },
+      mounted(){
+        this.pickpokemon =  Pokename[Math.floor(Math.random()*809 +1)]
       }
     }
 </script>

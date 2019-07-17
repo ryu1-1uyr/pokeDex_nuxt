@@ -1,6 +1,7 @@
 <template>
     <div>
       <p>努力値だよ！</p>
+      <p>{{pokeIndividualValue}}</p>
     </div>
 </template>
 

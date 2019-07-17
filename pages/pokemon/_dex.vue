@@ -1,15 +1,11 @@
 <template>
     <div>
       <p>卍くわしいぺーじ卍</p>
-      <p>{{this.pokeNumber+' : '+this.pokeName}}</p>
-      <p>{{this.pokeTypes}}</p>
-      <p>{{this.pokeAbilities}}</p>
-      <p>{{this.pokeIndividualValue}}</p>
 
-      <Skills />
       <DefaultData :name="this.pokeName" :number="this.pokeNumber" :abilities="this.pokeAbilities" :types="this.pokeTypes"  />
       <Effort :pokeIndividualValue="this.pokeIndividualValue" />
       <Graph :pokeIndividualValue="this.pokeIndividualValue"/>
+      <Skills :moves="this.pokeMoves" />
 
     </div>
 </template>

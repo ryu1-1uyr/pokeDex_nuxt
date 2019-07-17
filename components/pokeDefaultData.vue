@@ -1,5 +1,7 @@
 <template>
-    <div>きそでーただよ！！</div>
+    <div>きそでーただよ！！
+      <p>{{name+number+abilities+types}}</p>
+    </div>
 </template>
 
 <script>

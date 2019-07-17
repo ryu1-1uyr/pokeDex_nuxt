@@ -1,6 +1,8 @@
 <template>
     <div>
-      <p>くわしいぺーじ</p>
+      <p>卍くわしいぺーじ卍</p>
+      <p>{{this.pokeNumber+' : '+this.pokeName}}</p>
+      <p>{{this.pokeTypes}}</p>
 
       <Skills />
       <DefaultData />
@@ -15,7 +17,8 @@
   import DefaultData from '@/components/pokeDefaultData'
   import Effort from '@/components/pokeEffortData'
   import Graph from '@/components/pokeGraph'
-  import axios from "../../.nuxt/axios";
+  import Pokename from '@/assets/pokename'
+  import axios from "axios";
 
   export default {
     components: {
@@ -27,9 +30,11 @@
     name: "_dex",
     data () {
       return {
+        baseurl: 'https://pokeapi.co/api/v2/pokemon/',
         pokeName: '',
         pokeNumber: '',
         pokeAbility: '',
+        pokeTypes: [],
         pokeIndividualValue: {
           HP: '',
           Attack: '',
